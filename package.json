@@ -10,8 +10,12 @@
                       "url"      : "git://github.com/rlidwka/markdown-it-regexp" },
 
   "keywords"      : [ "markdown-it-plugin" ],
-  
+
   "publishConfig" : { "registry" : "https://registry.npmjs.org/" },
+
+  "type": "module",
+
+  "devDependencies": { "markdown-it": "latest" },
 
   "license"       : "MIT"
 }
