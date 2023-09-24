@@ -4,15 +4,16 @@ Make simple [markdown-it](https://github.com/markdown-it/markdown-it) plugins ea
 ## Usage:
 
 ```js
-var md     = require('markdown-it')
-var Plugin = require('markdown-it-regexp')
+import md from 'markdown-it';
+import createPlugin from '@hongminhee/markdown-it-regexp';
 
 var plugin = Plugin(
   // regexp to match
   /@(\w+)/,
 
   // this function will be called when something matches
-  function(match, utils) {
+  function(match, utils, env) {
+    if (!env.userExists(match[1])) return '@' + match[1];
     var url = 'http://example.org/u/' + match[1]
 
     return '<a href="' + utils.escape(url) + '">'
@@ -23,16 +24,13 @@ var plugin = Plugin(
 
 md()
   .use(plugin)
-  .render("hello @user")
+  .render("hello @user", { userExists: (u) => u === "user" })
 
 // prints out:
-// <p>hello <a href="http://example.org/u/user">user</a></p>
+// <p>hello <a href="http://example.org/u/user">user</a> and @user2</p>
 ```
-
-[Live demo as jsfiddle](https://jsfiddle.net/arve0/nz0Lb6ox/).
 
 ## Fair warning:
 
 1. it could be slower than you expect
 2. it is a draft, breaking changes might happen
-

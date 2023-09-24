@@ -1,6 +1,6 @@
 {
   "name"          : "@hongminhee/markdown-it-regexp",
-  "version"       : "0.5.0",
+  "version"       : "0.6.0",
   "description"   : "plugin that makes regexp replacement simple",
 
   "author"        : { "name"     : "Alex Kocharin",
