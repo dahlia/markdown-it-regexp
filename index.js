@@ -1,1 +1,3 @@
-module.exports = require('./lib')
+import createPlugin from "./lib";
+
+export default createPlugin;

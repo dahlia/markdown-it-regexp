@@ -13,5 +13,9 @@
 
   "publishConfig" : { "registry" : "https://registry.npmjs.org/" },
 
+  "type": "module",
+
+  "devDependencies": { "markdown-it": "latest" },
+
   "license"       : "MIT"
 }
